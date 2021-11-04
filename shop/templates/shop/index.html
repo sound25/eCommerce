@@ -145,7 +145,10 @@ function DisplayCart(cart){
 }
 
 function loadcart(){
-  
+  if(cart[item_id]!=undefined){
+  document.getElementById("cart").innerHTML = "Cart(0)";
+  }
+
   cart=JSON.parse(localStorage.getItem('cart'));
   document.getElementById("cart").innerHTML = "Cart("+ Object.keys(cart).length +")";
 }
