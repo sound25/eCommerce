@@ -30,7 +30,7 @@
                       
                       <button id="cart" data-html="true" type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
 sagittis lacus vel augue laoreet rutrum faucibus.">
-Cart(0)
+
 </button>
                     </li>
 
@@ -97,7 +97,7 @@ Cart(0)
 
 <script type="text/javascript">
 
-if(localStorage.getItem('cart')==null){
+if(localStorage.getItem('cart')==null || localStorage.getItem('cart')==undefined){
     var cart={};
 }
 else{
@@ -107,7 +107,7 @@ $(document).on('click','.atc',function(){
     console.log("the atc button ic clicked");
     var item_id=this.id.toString();
     console.log(item_id);
-    if(cart[item_id]!=undefined){
+    if(cart[item_id]!=undefined || cart[item_id]!=null){
         quantity=cart[item_id][0]+1;
         cart[item_id][0]=quantity;
         cart[item_id][2]=cart[item_id][2]+parseFloat(document.getElementById("price"+item_id).innerHTML);
@@ -145,13 +145,17 @@ function DisplayCart(cart){
 }
 
 function loadcart(){
-  if(cart[item_id]!=undefined){
-  document.getElementById("cart").innerHTML = "Cart(0)";
-  }
+  //if(localStorage.getItem('cart')==null || localStorage.getItem('cart')== undefined){
+    document.getElementById("cart").innerHTML = "Cart(0)";
+//}
+  
+//else{
+//cart=JSON.parse(localStorage.getItem('cart'));
 
-  cart=JSON.parse(localStorage.getItem('cart'));
-  document.getElementById("cart").innerHTML = "Cart("+ Object.keys(cart).length +")";
-}
+  //document.getElementById("cart").innerHTML = "Cart("+ Object.keys(cart).length +")";
+
+//}
+  }
 
 </script>
 </html>
