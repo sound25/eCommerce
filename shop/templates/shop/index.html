@@ -145,16 +145,16 @@ function DisplayCart(cart){
 }
 
 function loadcart(){
-  //if(localStorage.getItem('cart')==null || localStorage.getItem('cart')== undefined){
+  if(localStorage.getItem('cart')==null || localStorage.getItem('cart')== undefined){
     document.getElementById("cart").innerHTML = "Cart(0)";
-//}
+}
   
-//else{
-//cart=JSON.parse(localStorage.getItem('cart'));
+else{
+cart=JSON.parse(localStorage.getItem('cart'));
 
-  //document.getElementById("cart").innerHTML = "Cart("+ Object.keys(cart).length +")";
+  document.getElementById("cart").innerHTML = "Cart("+ Object.keys(cart).length +")";
 
-//}
+}
   }
 
 </script>
